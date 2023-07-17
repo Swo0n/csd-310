@@ -53,6 +53,7 @@ CREATE TABLE equipment (
     inventory_id 	   INT	   	   NOT NULL,
     restock_date     DATE NOT NULL,
     equip_expired  ENUM('Yes', 'No')	   NOT NULL,
+    equip_status   ENUM('Purchased', 'Rented'),
   
     PRIMARY KEY (equipment_id),
 
@@ -160,35 +161,35 @@ INSERT INTO inventory(product_name, purchase_cost, rental_cost, equip_type)
 
 
 -- create equipment table
-INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired)
-    VALUES((SELECT client_id FROM clients WHERE first_name = 'Grandma'), (SELECT inventory_id FROM inventory WHERE product_name = 'Lantern'), '2016-05-15', 'Yes');
+INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired, equip_status)
+    VALUES((SELECT client_id FROM clients WHERE first_name = 'Grandma'), (SELECT inventory_id FROM inventory WHERE product_name = 'Lantern'), '2016-05-15', 'Yes', 'Purchased');
 
-INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired)
-    VALUES((SELECT client_id FROM clients WHERE first_name = 'Grandma'), (SELECT inventory_id FROM inventory WHERE product_name = 'GPS'), '2006-07-26', 'Yes');
+INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired, equip_status)
+    VALUES((SELECT client_id FROM clients WHERE first_name = 'Grandma'), (SELECT inventory_id FROM inventory WHERE product_name = 'GPS'), '2006-07-26', 'Yes', 'Purchased');
 
-INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired)
-    VALUES((SELECT client_id FROM clients WHERE first_name = 'Grandma'), (SELECT inventory_id FROM inventory WHERE product_name = 'Sleeping Bag'), '2019-02-11', 'No');
+INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired, equip_status)
+    VALUES((SELECT client_id FROM clients WHERE first_name = 'Grandma'), (SELECT inventory_id FROM inventory WHERE product_name = 'Sleeping Bag'), '2019-02-11', 'No', 'Rented');
 
-INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired)
-    VALUES((SELECT client_id FROM clients WHERE first_name = 'Jennifer'), (SELECT inventory_id FROM inventory WHERE product_name = 'Lantern'), '2019-08-24', 'No');
+INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired, equip_status)
+    VALUES((SELECT client_id FROM clients WHERE first_name = 'Jennifer'), (SELECT inventory_id FROM inventory WHERE product_name = 'Lantern'), '2019-08-24', 'No', 'Purchased');
 
-INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired)
-    VALUES((SELECT client_id FROM clients WHERE first_name = 'Alex'), (SELECT inventory_id FROM inventory WHERE product_name = 'Tent'), '2010-11-07', 'Yes');
+INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired, equip_status)
+    VALUES((SELECT client_id FROM clients WHERE first_name = 'Alex'), (SELECT inventory_id FROM inventory WHERE product_name = 'Tent'), '2010-11-07', 'Yes', 'Rented');
 
-INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired)
-    VALUES((SELECT client_id FROM clients WHERE first_name = 'Cheryl'), (SELECT inventory_id FROM inventory WHERE product_name = 'Sleeping Bag'), '2021-01-18', 'No');
+INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired, equip_status)
+    VALUES((SELECT client_id FROM clients WHERE first_name = 'Cheryl'), (SELECT inventory_id FROM inventory WHERE product_name = 'Sleeping Bag'), '2021-01-18', 'No', 'Rented');
 
-INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired)
-    VALUES((SELECT client_id FROM clients WHERE first_name = 'Cheryl'), (SELECT inventory_id FROM inventory WHERE product_name = 'Backpack'), '2022-04-06', 'No');
+INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired, equip_status)
+    VALUES((SELECT client_id FROM clients WHERE first_name = 'Cheryl'), (SELECT inventory_id FROM inventory WHERE product_name = 'Backpack'), '2022-04-06', 'No', 'Rented');
 
-INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired)
-    VALUES((SELECT client_id FROM clients WHERE first_name = 'Cheryl'), (SELECT inventory_id FROM inventory WHERE product_name = 'GPS'), '2022-05-09', 'No');
+INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired, equip_status)
+    VALUES((SELECT client_id FROM clients WHERE first_name = 'Cheryl'), (SELECT inventory_id FROM inventory WHERE product_name = 'GPS'), '2022-05-09', 'No','Purchased');
 
-INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired)
-    VALUES((SELECT client_id FROM clients WHERE first_name = 'Bill'), (SELECT inventory_id FROM inventory WHERE product_name = 'Trail Boots'), '2023-09-20', 'No');
+INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired, equip_status)
+    VALUES((SELECT client_id FROM clients WHERE first_name = 'Bill'), (SELECT inventory_id FROM inventory WHERE product_name = 'Trail Boots'), '2023-09-20', 'No', 'Rented');
 
-INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired)
-    VALUES((SELECT client_id FROM clients WHERE first_name = 'Bill'), (SELECT inventory_id FROM inventory WHERE product_name = 'Tent'), '2023-09-20', 'No');
+INSERT INTO equipment(client_id, inventory_id, restock_date, equip_expired, equip_status)
+    VALUES((SELECT client_id FROM clients WHERE first_name = 'Bill'), (SELECT inventory_id FROM inventory WHERE product_name = 'Tent'), '2023-09-20', 'No', 'Rented');
 
 
 -- insert guides records
