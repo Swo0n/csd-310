@@ -32,13 +32,12 @@ except mysql.connector.Error as err:
 # enough customers buy equipment to keep equipment sales?
 print("-- DISPLAYING Equipment Sales RECORDS --")
 cursorP = mydb.cursor()
-# ANY_VALUE(clients.first_name), ANY_VALUE(clients.last_name), ANY_VALUE(inventory.product_name)
 cursorP.execute("SELECT ROUND(SUM(inventory.purchase_cost), 2) FROM equipment JOIN clients ON clients.client_id = equipment.client_id JOIN inventory ON inventory.inventory_id = equipment.inventory_id WHERE equip_status = 'Purchased'")
 
 resultP = cursorP.fetchall()
 
 for purchase_cost in resultP:
-    print(f"Total Purchase Sales: {purchase_cost}\n")
+    print(f"Total Rental Sales: {purchase_cost}\n".format(resultP))
 
 cursorR = mydb.cursor()
 cursorR.execute("SELECT ROUND(SUM(inventory.rental_cost), 2) FROM equipment JOIN clients ON clients.client_id = equipment.client_id JOIN inventory ON inventory.inventory_id = equipment.inventory_id WHERE equip_status = 'Rented'")
