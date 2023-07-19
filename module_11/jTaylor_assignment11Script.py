@@ -37,7 +37,7 @@ cursorP.execute("SELECT ROUND(SUM(inventory.purchase_cost), 2) FROM equipment JO
 resultP = cursorP.fetchall()
 
 for purchase_cost in resultP:
-    print(f"Total Rental Sales: {purchase_cost}\n".format(resultP))
+    print(f"Total Purchase Sales: {purchase_cost}\n".format(resultP))
 
 cursorR = mydb.cursor()
 cursorR.execute("SELECT ROUND(SUM(inventory.rental_cost), 2) FROM equipment JOIN clients ON clients.client_id = equipment.client_id JOIN inventory ON inventory.inventory_id = equipment.inventory_id WHERE equip_status = 'Rented'")
